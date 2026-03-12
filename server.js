@@ -1,9 +1,13 @@
 const jsonServer = require("json-server");
 const cors = require("cors");
 const auth = require("json-server-auth");
+const path = require("path"); // 👈 1. 記得加回這行！
 
 const app = jsonServer.create();
-const router = jsonServer.router("db.json"); // 指向你的資料庫
+
+// 👈 2. 這裡一定要用 __dirname 綁死絕對路徑！
+const router = jsonServer.router(path.join(__dirname, "db.json"));
+
 const middlewares = jsonServer.defaults();
 
 // 設定 Port，雲端環境會自動分配 process.env.PORT
