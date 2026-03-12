@@ -3,7 +3,7 @@ const cors = require("cors");
 const auth = require("json-server-auth");
 
 const app = jsonServer.create();
-const router = jsonServer.router("dj.json"); // 指向你的資料庫
+const router = jsonServer.router("db.json"); // 指向你的資料庫
 const middlewares = jsonServer.defaults();
 
 // 設定 Port，雲端環境會自動分配 process.env.PORT
